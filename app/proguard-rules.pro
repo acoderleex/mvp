@@ -25,3 +25,9 @@
     @icepick.* <fields>;
 }
 -keepnames class * { @icepick.State *;}
+
+
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
