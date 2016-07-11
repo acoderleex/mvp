@@ -14,12 +14,12 @@ import rx.Subscriber;
 /**
  * Created by Tony on 7/8/16.
  */
-public class BaseSubscribe<T> extends Subscriber<T> {
+public class BaseSubscribe<M> extends Subscriber<M> {
 
     private Context context;
-    private SubscribeCallBack<T> callBack;
+    private SubscribeCallBack<M> callBack;
 
-    public BaseSubscribe(Context context, SubscribeCallBack<T> callBack) {
+    public BaseSubscribe(Context context, SubscribeCallBack<M> callBack) {
         this.context = context;
         this.callBack = callBack;
     }
@@ -46,8 +46,8 @@ public class BaseSubscribe<T> extends Subscriber<T> {
     }
 
     @Override
-    public void onNext(T t) {
+    public void onNext(M m) {
         if (callBack != null)
-            callBack.onReceiveData(t);
+            callBack.onReceiveData(m);
     }
 }

@@ -14,6 +14,5 @@ import dagger.Component;
 @Singleton
 @Component(modules = AppModule.class, dependencies = ApplicationComponent.class)
 public interface ZYLoginComponent {
-
     public ZYLoginPresenter presenter();
 }

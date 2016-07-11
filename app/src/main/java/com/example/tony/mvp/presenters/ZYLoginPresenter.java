@@ -31,6 +31,7 @@ public class ZYLoginPresenter extends BasePresenter<ZYLoginView> {
     public void doLogin(Context context, ZYLoginRequestBean requestBean) {
         if (isViewAttached())
             getView().showLoading(false);
+        cancelSubscription(subscribe);
 
         subscribe = new BaseSubscribe(context, new SubscribeCallBack() {
 
@@ -44,6 +45,7 @@ public class ZYLoginPresenter extends BasePresenter<ZYLoginView> {
             public void onComplete() {
                 if (isViewAttached())
                     getView().showContent();
+                cancelSubscription(subscribe);
             }
 
             @Override
@@ -58,6 +60,7 @@ public class ZYLoginPresenter extends BasePresenter<ZYLoginView> {
             public void onError(Throwable e) {
                 if (isViewAttached())
                     getView().showError(e, false);
+                cancelSubscription(subscribe);
             }
         });
         HttpClient.getInstance(context).doLogin(subscribe, requestBean);

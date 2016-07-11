@@ -12,7 +12,6 @@ import com.example.tony.mvp.ZYApplication;
 import com.example.tony.mvp.base.BaseFragment;
 import com.example.tony.mvp.models.ZYLoginResponseBean;
 import com.example.tony.mvp.presenters.ZYLoginPresenter;
-import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 
 import butterknife.Bind;
 
@@ -20,8 +19,6 @@ import butterknife.Bind;
  * Created by Tony on 7/8/16.
  */
 public class ZYLoginFragment extends BaseFragment<SwipeRefreshLayout, ZYLoginResponseBean, ZYLoginView, ZYLoginPresenter> implements ZYLoginView {
-
-    public final String ARGUMENT_TASK_ID = "ARGUMENT_TASK_ID";
 
     private ZYLoginComponent component;
 
@@ -58,7 +55,7 @@ public class ZYLoginFragment extends BaseFragment<SwipeRefreshLayout, ZYLoginRes
     }
 
     @Override
-    public MvpPresenter createPresenter() {
+    public ZYLoginPresenter createPresenter() {
         return component.presenter();
     }
 
@@ -69,7 +66,7 @@ public class ZYLoginFragment extends BaseFragment<SwipeRefreshLayout, ZYLoginRes
 
     @Override
     public void loadData(boolean pullToRefresh) {
-        component.presenter().doLogin(context, null);
+        createPresenter().doLogin(context, null);
     }
 
     @Override
@@ -80,7 +77,7 @@ public class ZYLoginFragment extends BaseFragment<SwipeRefreshLayout, ZYLoginRes
 
     public static ZYLoginFragment newInstance(String taskId) {
         Bundle arguments = new Bundle();
-        arguments.putString(ARGUMENT_TASK_ID, taskId);
+        arguments.putString("id", taskId);
         ZYLoginFragment fragment = new ZYLoginFragment();
         fragment.setArguments(arguments);
         return fragment;

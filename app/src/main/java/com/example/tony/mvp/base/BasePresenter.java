@@ -15,5 +15,6 @@ public class BasePresenter<V> extends MvpBasePresenter<MvpLceView> {
         if (subscriber != null && !subscriber.isUnsubscribed()) {
             subscriber.unsubscribe();
         }
+        subscriber = null;
     }
 }
