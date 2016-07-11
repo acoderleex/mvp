@@ -15,7 +15,6 @@ import com.example.tony.mvp.presenters.ZYLoginPresenter;
 import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Tony on 7/8/16.
