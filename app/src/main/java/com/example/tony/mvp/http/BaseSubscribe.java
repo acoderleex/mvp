@@ -1,6 +1,6 @@
 package com.example.tony.mvp.http;
 
-import android.app.Application;
+import android.content.Context;
 import android.widget.Toast;
 
 import com.example.tony.mvp.R;
@@ -16,11 +16,11 @@ import rx.Subscriber;
  */
 public class BaseSubscribe<T> extends Subscriber<T> {
 
-    private Application application;
+    private Context context;
     private SubscribeCallBack<T> callBack;
 
-    public BaseSubscribe(Application application, SubscribeCallBack<T> callBack) {
-        this.application = application;
+    public BaseSubscribe(Context context, SubscribeCallBack<T> callBack) {
+        this.context = context;
         this.callBack = callBack;
     }
 
@@ -35,14 +35,14 @@ public class BaseSubscribe<T> extends Subscriber<T> {
     public void onError(Throwable e) {
         ZYLog.showLog("TAG", "====BaseSubscribe====" + e.getMessage());
         if (e instanceof SocketTimeoutException) {
-            Toast.makeText(application, application.getResources().getString(R.string.net_timeout), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, context.getResources().getString(R.string.net_timeout), Toast.LENGTH_SHORT).show();
         } else if (e instanceof ConnectException) {
-            Toast.makeText(application, application.getResources().getString(R.string.net_connect), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, context.getResources().getString(R.string.net_connect), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(application, e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         if (callBack != null)
-            callBack.onComplete();
+            callBack.onError(e);
     }
 
     @Override

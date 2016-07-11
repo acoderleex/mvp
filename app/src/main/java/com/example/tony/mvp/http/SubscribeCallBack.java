@@ -10,4 +10,6 @@ public interface SubscribeCallBack<T> {
     public void onComplete();
 
     public void onReceiveData(T t);
+
+    public void onError(Throwable e);
 }

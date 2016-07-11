@@ -24,7 +24,7 @@ import rx.schedulers.Schedulers;
 
 /**
  * 网络请求 实例化类
- * <p/>
+ * <p>
  * Created by Tony on 7/8/16.
  */
 public class HttpClient {
@@ -85,7 +85,7 @@ public class HttpClient {
      * @param subscriber
      * @param gsonPost
      */
-    public void doLogin(BaseSubscribe<Object> subscriber, Gson gsonPost) {
+    public void doLogin(BaseSubscribe subscriber, Object gsonPost) {
         Gson gson = new Gson();
         Observable<Object> observable = httpApiService.doLogin(gson.toJson(gsonPost))
                 .map(new HttpResultFunc<>());

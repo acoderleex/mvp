@@ -8,8 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hannesdorfmann.fragmentargs.FragmentArgs;
-import com.hannesdorfmann.mosby.mvp.MvpView;
+import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 import com.hannesdorfmann.mosby.mvp.lce.MvpLceFragment;
+import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
 
 import butterknife.ButterKnife;
 import icepick.Icepick;
@@ -17,7 +18,7 @@ import icepick.Icepick;
 /**
  * Created by Tony on 7/8/16.
  */
-public abstract class BaseFragment<CV extends View, M extends Object, V extends MvpView, P extends BasePresenter> extends MvpLceFragment {
+public abstract class BaseFragment<CV extends View, M, V extends MvpLceView<M>, P extends BasePresenter<V>> extends MvpLceFragment {
 
 
     @LayoutRes
@@ -60,7 +61,5 @@ public abstract class BaseFragment<CV extends View, M extends Object, V extends 
     /**
      * Inject the dependencies
      */
-    public void injectDependences() {
-
-    }
+    public abstract void injectDependences();
 }
