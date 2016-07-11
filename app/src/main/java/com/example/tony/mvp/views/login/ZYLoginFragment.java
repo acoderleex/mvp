@@ -61,7 +61,7 @@ public class ZYLoginFragment extends BaseFragment<SwipeRefreshLayout, ZYLoginRes
 
     @Override
     public void setData(ZYLoginResponseBean data) {
-
+        
     }
 
     @Override

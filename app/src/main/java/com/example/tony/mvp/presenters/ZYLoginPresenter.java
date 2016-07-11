@@ -49,9 +49,9 @@ public class ZYLoginPresenter extends BasePresenter<ZYLoginView> {
             }
 
             @Override
-            public void onReceiveData(Object o) {
+            public void onReceiveData(Object t) {
                 if (isViewAttached()) {
-                    getView().setData(o);
+                    getView().setData(t);
                     getView().showContent();
                 }
             }
