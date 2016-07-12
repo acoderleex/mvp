@@ -7,7 +7,7 @@ import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
 /**
  * Created by Tony on 7/8/16.
  */
-public class BasePresenter<V> extends MvpBasePresenter<MvpLceView> {
+public class BasePresenter<V extends MvpLceView> extends MvpBasePresenter<V> {
 
 
     public void cancelSubscription(BaseSubscribe subscriber) {

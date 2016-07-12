@@ -43,7 +43,7 @@ public class ZYLoginPresenter extends BasePresenter<ZYLoginView> {
             @Override
             public void onComplete() {
                 if (isViewAttached())
-                    getView().showContent();
+                    getView().showLoginSuccessful();
             }
 
             @Override

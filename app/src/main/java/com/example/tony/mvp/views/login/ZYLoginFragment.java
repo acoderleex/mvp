@@ -18,7 +18,7 @@ import butterknife.Bind;
 /**
  * Created by Tony on 7/8/16.
  */
-public class ZYLoginFragment extends BaseFragment<SwipeRefreshLayout, ZYLoginResponseBean, ZYLoginView, ZYLoginPresenter> {
+public class ZYLoginFragment extends BaseFragment<SwipeRefreshLayout, ZYLoginResponseBean, ZYLoginView, ZYLoginPresenter> implements ZYLoginView {
 
     private ZYLoginComponent component;
 
@@ -60,13 +60,13 @@ public class ZYLoginFragment extends BaseFragment<SwipeRefreshLayout, ZYLoginRes
     }
 
     @Override
-    public void setData(Object data) {
+    public void setData(ZYLoginResponseBean data) {
 
     }
 
     @Override
     public void loadData(boolean pullToRefresh) {
-        createPresenter().doLogin(context, null);
+        presenter.doLogin(context, null);
     }
 
 
@@ -76,5 +76,10 @@ public class ZYLoginFragment extends BaseFragment<SwipeRefreshLayout, ZYLoginRes
         ZYLoginFragment fragment = new ZYLoginFragment();
         fragment.setArguments(arguments);
         return fragment;
+    }
+
+    @Override
+    public void showLoginSuccessful() {
+
     }
 }
