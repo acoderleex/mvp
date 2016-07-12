@@ -18,7 +18,7 @@ import icepick.Icepick;
 /**
  * Created by Tony on 7/8/16.
  */
-public abstract class BaseFragment<CV extends View, M, V extends MvpLceView<M>, P extends MvpPresenter<V>> extends MvpLceFragment<CV, M, V, P> implements MvpLceView<M> {
+public abstract class BaseFragment<CV extends View, M, V extends MvpLceView<M>, P extends MvpPresenter<V>> extends MvpLceFragment<CV, M, V, P> {
 
 
     @LayoutRes
