@@ -5,6 +5,6 @@ package com.example.tony.mvp.global;
  */
 public class Global {
     public static final int CONNECTION_TIME = 5;
-    public static final String BASE_URL = "";
+    public static final String BASE_URL = "http://www.baidu.com";
     public static final int HTTPSTATUS_OK = 0;
 }
