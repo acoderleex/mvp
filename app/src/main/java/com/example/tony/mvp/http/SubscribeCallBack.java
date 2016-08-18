@@ -5,8 +5,6 @@ package com.example.tony.mvp.http;
  */
 public interface SubscribeCallBack<M> {
 
-    public void onStart();
-
     public void onComplete();
 
     public void onReceiveData(M t);

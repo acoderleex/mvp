@@ -10,11 +10,16 @@ import com.example.tony.mvp.base.dagger.DaggerApplicationComponent;
  */
 public class ZYApplication extends Application {
     private static ApplicationComponent zyComponent;
+    private static ZYApplication sInstance;
 
     @Override
     public void onCreate() {
         super.onCreate();
         zyComponent = DaggerApplicationComponent.create();
+    }
+
+    public static ZYApplication getInstance() {
+        return sInstance;
     }
 
     public static ApplicationComponent getComponent() {
