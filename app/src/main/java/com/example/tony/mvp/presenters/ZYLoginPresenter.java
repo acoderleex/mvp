@@ -51,7 +51,7 @@ public class ZYLoginPresenter extends BasePresenter<ZYLoginView> {
                     getView().showError(e, false);
             }
         });
-        HttpClient.getInstance(context).httpApiService.doLogin(requestBean.toString());
+        addSubscription(httpApiService.doLogin(requestBean.toString()), subscribe);
     }
 
 }
